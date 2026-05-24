@@ -1302,6 +1302,53 @@ footer { background: var(--navy-darkest); border-top: 1px solid rgba(0,191,255,0
 @keyframes spinSlow { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
 @keyframes orbitPulse { 0%,100%{opacity:0.5;transform:scale(1)} 50%{opacity:1;transform:scale(1.05)} }
 
+/* ── HAMBURGER BUTTON ── */
+.nav-hamburger {
+  display:none; flex-direction:column; justify-content:center;
+  gap:5px; width:40px; height:40px;
+  background:transparent; border:1.5px solid rgba(0,191,255,0.25);
+  border-radius:var(--radius-sm); cursor:pointer;
+  padding:9px 8px; transition:all var(--transition); z-index:1001;
+}
+.nav-hamburger span {
+  display:block; width:100%; height:2px;
+  background:var(--concrete); border-radius:2px;
+  transition:all 0.35s ease; transform-origin:center;
+}
+.nav-hamburger.open { border-color:rgba(0,191,255,0.5); }
+.nav-hamburger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); background:var(--cyan); }
+.nav-hamburger.open span:nth-child(2) { opacity:0; transform:scaleX(0); }
+.nav-hamburger.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); background:var(--cyan); }
+
+/* ── MOBILE NAV OVERLAY ── */
+.mobile-nav {
+  position:fixed; inset:0; z-index:999;
+  background:rgba(9,17,32,0.97);
+  backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  opacity:0; pointer-events:none; transition:opacity 0.35s ease;
+}
+.mobile-nav.open { opacity:1; pointer-events:all; }
+.mobile-nav-links { list-style:none; text-align:center; padding:0; width:100%; max-width:320px; }
+.mobile-nav-links li { border-bottom:1px solid rgba(0,191,255,0.07); }
+.mobile-nav-links li:first-child { border-top:1px solid rgba(0,191,255,0.07); }
+.mobile-nav-links a {
+  display:block; padding:22px 32px;
+  font-family:'Montserrat',sans-serif; font-size:14px;
+  font-weight:700; letter-spacing:2.5px; text-transform:uppercase;
+  color:var(--concrete); transition:color var(--transition), background var(--transition);
+}
+.mobile-nav-links a:hover { color:var(--white); background:rgba(0,191,255,0.04); }
+.mobile-nav-cta {
+  margin-top:32px; display:inline-block; padding:16px 48px;
+  background:transparent; border:1.5px solid var(--cyan);
+  color:var(--cyan); font-family:'Montserrat',sans-serif;
+  font-weight:700; font-size:12px; letter-spacing:2px;
+  text-transform:uppercase; border-radius:var(--radius-sm);
+  transition:all var(--transition);
+}
+.mobile-nav-cta:hover { background:var(--cyan); color:var(--navy-darkest); }
+
 /* ── RESPONSIVE ── */
 @media(max-width:1024px){
   .stats-grid{grid-template-columns:repeat(3,1fr)}
@@ -1313,26 +1360,75 @@ footer { background: var(--navy-darkest); border-top: 1px solid rgba(0,191,255,0
   .footer-top{grid-template-columns:1fr 1fr;gap:40px}
 }
 @media(max-width:768px){
-  .navbar{padding:16px 24px}
-  .navbar.scrolled{padding:12px 24px}
+  /* — NAV — */
+  .navbar{padding:14px 20px}
+  .navbar.scrolled{padding:10px 20px}
   .nav-links,.nav-cta{display:none}
-  .section-inner{padding:72px 24px}
-  .stats-grid{grid-template-columns:1fr}
+  .nav-hamburger{display:flex}
+  /* — LAYOUT — */
+  .section-inner{padding:56px 20px}
+  /* — HERO — */
+  .hero-logo-text{font-size:clamp(56px,18vw,96px);letter-spacing:8px}
+  .hero-tagline{font-size:clamp(18px,5vw,28px);min-height:auto}
+  .hero-subtitle{font-size:14px;margin-bottom:36px}
+  .hero-subtitle br{display:none}
+  .hero-actions{gap:12px}
+  .hero-eyebrow{margin-bottom:20px}
+  .scroll-indicator{display:none}
+  .hero-badge{display:none}
+  /* — PROBLEMA — */
+  .stats-grid{grid-template-columns:1fr;gap:14px;margin-bottom:40px}
+  .stat-card-inner{padding:24px 20px 20px}
+  .stat-number{font-size:clamp(44px,12vw,60px)}
+  .problema-headline{margin-bottom:40px}
+  .problema-headline p{font-size:15px}
+  .problema-cta{padding:32px 20px}
   .hud-corners{display:none}
   .hud-topbar{flex-direction:column;gap:8px;align-items:flex-start}
+  /* — QUIÉNES — */
+  .qs-hero{padding-bottom:40px}
+  .qs-subtitle{font-size:15px}
+  .qs-diff{flex-direction:column;margin-bottom:40px}
+  .qs-diff-item{padding:22px 20px}
+  .qs-diff-item+.qs-diff-item{border-left:none;border-top:1px solid rgba(0,191,255,0.06)}
+  .qs-narrative{grid-template-columns:1fr;gap:40px;margin-bottom:48px}
+  .qs-pillars{grid-template-columns:1fr}
+  /* — ECOSISTEMA — */
   .eco-grid{grid-template-columns:1fr}
+  .eco-header{margin-bottom:40px}
+  .eco-card-inner{padding:32px 24px 28px}
+  /* — MÉTODO — */
   .timeline{grid-template-columns:1fr}
+  .tl-connector,.tl-progress{display:none}
+  .metodo-header{margin-bottom:40px}
+  /* — AUDIENCIA — */
   .audiencia-grid{grid-template-columns:repeat(2,1fr)}
+  .audiencia-card{padding:28px 20px 24px}
+  .audiencia-header{margin-bottom:36px}
+  .audiencia-cta-bar{padding:28px 20px}
+  /* — TESTIMONIOS — */
   .testimonios-grid{grid-template-columns:1fr}
+  .testimonio-card-inner{padding:32px 24px 28px}
+  .testimonios-header{margin-bottom:40px}
+  /* — CTA FINAL — */
+  .cta-numbers{gap:24px;margin-top:40px}
+  .cta-btn{padding:16px 40px;font-size:13px}
+  .cta-answer{margin-bottom:36px}
+  /* — FOOTER — */
   .footer-top{grid-template-columns:1fr;gap:32px}
   .footer-bottom{flex-direction:column;gap:12px;text-align:center}
-  .hero-badge{display:none}
-  .cta-numbers{gap:32px}
+  footer{padding:48px 20px 28px}
 }
 @media(max-width:480px){
+  .section-inner{padding:44px 16px}
   .audiencia-grid{grid-template-columns:1fr}
   .hero-actions{flex-direction:column;align-items:center}
-  .btn-primary,.btn-outline{width:100%;max-width:300px;text-align:center}
+  .btn-primary,.btn-outline{width:100%;max-width:340px;text-align:center;padding:14px 20px}
+  .cta-btn{width:100%;max-width:340px}
+  .testimonio-card-inner{padding:24px 18px 22px}
+  .eco-card-inner{padding:26px 18px 22px}
+  .stat-card-inner{padding:20px 16px 16px}
+  .problema-cta{padding:24px 16px}
 }
 </style>
 </head>
@@ -1350,7 +1446,23 @@ footer { background: var(--navy-darkest); border-top: 1px solid rgba(0,191,255,0
   <a class="nav-cta" href="https://calendar.app.google/mFHRi76LV9q1iqzK6" target="_blank" rel="noopener noreferrer">
     <span>Diagnóstico Gratis</span>
   </a>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menú" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- MOBILE NAV OVERLAY -->
+<div class="mobile-nav" id="mobileNav">
+  <ul class="mobile-nav-links">
+    <li><a href="#problema" class="mobile-nav-link">El Problema</a></li>
+    <li><a href="#ecosistema" class="mobile-nav-link">Servicios</a></li>
+    <li><a href="#metodo" class="mobile-nav-link">Método</a></li>
+    <li><a href="#testimonios" class="mobile-nav-link">Casos</a></li>
+  </ul>
+  <a class="mobile-nav-cta" href="https://calendar.app.google/mFHRi76LV9q1iqzK6" target="_blank" rel="noopener noreferrer">
+    Diagnóstico Gratis
+  </a>
+</div>
 
 <!-- HERO -->
 <section id="hero">
@@ -2770,6 +2882,26 @@ document.querySelectorAll('[data-spotlight]').forEach(card=>{
     card.style.setProperty('--my', y+'px');
   });
 });
+
+/* ── HAMBURGER MENU ── */
+(function(){
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav  = document.getElementById('mobileNav');
+  const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+  if(!hamburger || !mobileNav) return;
+
+  function toggleNav(force){
+    const open = force !== undefined ? force : !hamburger.classList.contains('open');
+    hamburger.classList.toggle('open', open);
+    mobileNav.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', String(open));
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+
+  hamburger.addEventListener('click', () => toggleNav());
+  mobileLinks.forEach(link => link.addEventListener('click', () => toggleNav(false)));
+  mobileNav.addEventListener('click', e => { if(e.target === mobileNav) toggleNav(false); });
+})();
 </script>
 </body>
 </html>
