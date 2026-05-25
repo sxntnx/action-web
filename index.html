@@ -628,10 +628,11 @@ section { position: relative; overflow: hidden; }
 }
 .problema-cta p span { color: var(--cyan); }
 .problema-cta .hud-cta-sub {
-  font-family: 'Inter',sans-serif; font-weight: 400;
-  font-size: 14px; color: var(--concrete-dim); margin-top: 16px;
-  position: relative; z-index: 1; letter-spacing: 0.3px;
+  font-family: 'Montserrat',sans-serif; font-weight: 700;
+  font-size: clamp(16px,2.2vw,22px); color: var(--white); margin-top: 0;
+  position: relative; z-index: 1; letter-spacing: 0.3px; line-height: 1.5;
 }
+.problema-cta .hud-cta-sub span { color: var(--cyan); }
 
 /* ══════════════════════════════════════════════
    QUIÉNES SOMOS — PREMIUM INSTITUTIONAL REDESIGN
@@ -1916,8 +1917,7 @@ footer { background: var(--navy-darkest); border-top: 1px solid rgba(0,191,255,0
     </div>
 
     <div class="problema-cta reveal">
-      <p>¿Sos <span>dueño de tu empresa</span>...<br>o su <span>empleado más exigido?</span></p>
-      <p class="hud-cta-sub">Si te identificás con estos datos, tu empresa necesita una intervención estructural.</p>
+      <p class="hud-cta-sub">Si te identificás con estos datos, tu empresa necesita una <span>intervención estructural.</span></p>
     </div>
   </div>
 </section>
