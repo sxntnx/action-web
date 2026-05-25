@@ -1466,6 +1466,213 @@ footer { background: var(--navy-darkest); border-top: 1px solid rgba(0,191,255,0
   .audiencia-grid{grid-template-columns:repeat(2,1fr)}
   .footer-top{grid-template-columns:1fr 1fr;gap:40px}
 }
+/* ══════════════════════════════════════════════
+   SECCIÓN SERVICIOS — CONSULTORÍA / GESTIÓN
+   ══════════════════════════════════════════════ */
+#consultoria {
+  background: var(--navy-dark);
+  position: relative; overflow: hidden;
+}
+#gestion {
+  background: var(--navy-darkest);
+  position: relative; overflow: hidden;
+}
+.svc-ambient-cyan {
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background:
+    radial-gradient(ellipse at 20% 30%, rgba(0,191,255,0.07) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 70%, rgba(0,191,255,0.04) 0%, transparent 50%);
+}
+.svc-ambient-green {
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background:
+    radial-gradient(ellipse at 80% 30%, rgba(0,230,118,0.07) 0%, transparent 55%),
+    radial-gradient(ellipse at 20% 70%, rgba(0,230,118,0.04) 0%, transparent 50%);
+}
+
+/* Header intro */
+.svc-header { text-align: center; margin-bottom: 20px; position: relative; z-index: 2; }
+.svc-subtitle {
+  font-size: clamp(15px,1.8vw,18px); color: var(--concrete-dim);
+  max-width: 620px; margin: 0 auto; line-height: 1.75;
+}
+.svc-hl-cyan { color: var(--cyan); }
+.svc-hl-green { color: var(--life-color); }
+
+/* Two-column intro: text left, badge right */
+.svc-intro {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 56px; align-items: center;
+  margin-bottom: 64px; position: relative; z-index: 2;
+}
+.svc-intro-text {}
+.svc-intro-text h3 {
+  font-size: clamp(20px,2.5vw,28px); color: var(--white);
+  margin-bottom: 16px; line-height: 1.3;
+}
+.svc-intro-text p {
+  font-size: 16px; color: var(--concrete); line-height: 1.85; margin-bottom: 12px;
+}
+.svc-intro-text p strong { color: var(--white); }
+.svc-badge-box {
+  background: rgba(12,22,40,0.7); border-radius: var(--radius-lg);
+  border: 1px solid rgba(0,191,255,0.1);
+  padding: 36px 32px; backdrop-filter: blur(10px);
+}
+.svc-badge-box.green { border-color: rgba(0,230,118,0.1); }
+.svc-badge-item {
+  display: flex; align-items: center; gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.svc-badge-item:last-child { border-bottom: none; padding-bottom: 0; }
+.svc-badge-item:first-child { padding-top: 0; }
+.svc-badge-dot {
+  width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+}
+.svc-badge-dot.cyan { background: var(--cyan); box-shadow: 0 0 8px rgba(0,191,255,0.5); }
+.svc-badge-dot.green { background: var(--life-color); box-shadow: 0 0 8px rgba(0,230,118,0.5); }
+.svc-badge-label {
+  font-size: 14px; color: var(--concrete); font-weight: 500;
+}
+.svc-badge-label strong { color: var(--white); }
+
+/* Feature cards grid */
+.svc-features-grid {
+  display: grid; grid-template-columns: repeat(2,1fr);
+  gap: 20px; position: relative; z-index: 2;
+  margin-bottom: 48px;
+}
+.svc-feature {
+  background: rgba(12,22,40,0.6);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: var(--radius-md);
+  padding: 36px 30px 32px;
+  position: relative; overflow: hidden;
+  transition: all 0.45s cubic-bezier(0.4,0,0.2,1);
+  backdrop-filter: blur(8px);
+}
+.svc-feature::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  transform: scaleX(0); transition: transform 0.4s ease; transform-origin: left;
+}
+.svc-feature.cyan::before { background: linear-gradient(90deg, var(--cyan), transparent); }
+.svc-feature.green::before { background: linear-gradient(90deg, var(--life-color), transparent); }
+.svc-feature:hover::before { transform: scaleX(1); }
+.svc-feature:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0,191,255,0.2);
+  box-shadow: 0 16px 52px rgba(0,191,255,0.08);
+}
+.svc-feature.green:hover {
+  border-color: rgba(0,230,118,0.2);
+  box-shadow: 0 16px 52px rgba(0,230,118,0.07);
+}
+.svc-feature-num {
+  font-family: 'Montserrat',sans-serif; font-weight: 900;
+  font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+  margin-bottom: 20px; display: flex; align-items: center; gap: 10px;
+}
+.svc-feature.cyan .svc-feature-num { color: var(--cyan); }
+.svc-feature.green .svc-feature-num { color: var(--life-color); }
+.svc-feature-num::after {
+  content: ''; flex: 1; height: 1px; opacity: 0.2;
+}
+.svc-feature.cyan .svc-feature-num::after { background: var(--cyan); }
+.svc-feature.green .svc-feature-num::after { background: var(--life-color); }
+.svc-feature-icon {
+  width: 52px; height: 52px; border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 20px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+.svc-feature.cyan .svc-feature-icon { background: rgba(0,191,255,0.07); border: 1px solid rgba(0,191,255,0.2); }
+.svc-feature.green .svc-feature-icon { background: rgba(0,230,118,0.07); border: 1px solid rgba(0,230,118,0.2); }
+.svc-feature:hover .svc-feature-icon { transform: scale(1.08) rotate(-3deg); }
+.svc-feature.cyan:hover .svc-feature-icon { box-shadow: 0 0 24px rgba(0,191,255,0.18); }
+.svc-feature.green:hover .svc-feature-icon { box-shadow: 0 0 24px rgba(0,230,118,0.15); }
+.svc-feature-title {
+  font-family: 'Montserrat',sans-serif; font-weight: 800;
+  font-size: 19px; color: var(--white); margin-bottom: 10px; line-height: 1.2;
+}
+.svc-feature-desc {
+  font-size: 14px; color: var(--concrete-dim); line-height: 1.75; margin-bottom: 18px;
+}
+.svc-feature-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.svc-tag {
+  padding: 4px 12px; border-radius: 20px;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.5px;
+}
+.svc-feature.cyan .svc-tag { background: rgba(0,191,255,0.06); border: 1px solid rgba(0,191,255,0.18); color: var(--cyan); }
+.svc-feature.green .svc-tag { background: rgba(0,230,118,0.06); border: 1px solid rgba(0,230,118,0.18); color: var(--life-color); }
+
+/* Section CTA strip */
+.svc-cta-strip {
+  text-align: center; position: relative; z-index: 2;
+  padding: 40px; background: rgba(0,191,255,0.03);
+  border: 1px solid rgba(0,191,255,0.1);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.svc-cta-strip.green { background: rgba(0,230,118,0.03); border-color: rgba(0,230,118,0.1); }
+.svc-cta-strip p {
+  font-family: 'Montserrat',sans-serif; font-weight: 700;
+  font-size: clamp(16px,2vw,22px); color: var(--white); margin-bottom: 24px;
+}
+.svc-cta-strip p span { color: var(--cyan); }
+.svc-cta-strip.green p span { color: var(--life-color); }
+.btn-svc-cta {
+  display: inline-block; padding: 15px 40px;
+  font-family: 'Montserrat',sans-serif; font-weight: 800;
+  font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+  border-radius: var(--radius-sm); text-decoration: none;
+  cursor: pointer; transition: all var(--transition);
+  position: relative; overflow: hidden;
+}
+.btn-svc-cta.cyan {
+  background: var(--cyan); color: var(--navy-darkest);
+  box-shadow: 0 8px 32px rgba(0,191,255,0.35);
+}
+.btn-svc-cta.cyan:hover { transform: translateY(-3px); box-shadow: 0 14px 44px rgba(0,191,255,0.5); }
+.btn-svc-cta.green {
+  background: var(--life-color); color: var(--navy-darkest);
+  box-shadow: 0 8px 32px rgba(0,230,118,0.3);
+}
+.btn-svc-cta.green:hover { transform: translateY(-3px); box-shadow: 0 14px 44px rgba(0,230,118,0.45); }
+
+/* Sectores strip dentro de testimonios */
+.sectores-strip { margin-top: 72px; position: relative; z-index: 2; }
+.sectores-label {
+  text-align: center; margin-bottom: 36px;
+}
+.sectores-label span {
+  font-size: 10px; font-weight: 700; letter-spacing: 3.5px;
+  text-transform: uppercase; color: var(--cyan);
+}
+.sectores-grid {
+  display: grid; grid-template-columns: repeat(4,1fr); gap: 16px;
+}
+.sector-card {
+  background: rgba(13,27,46,0.5);
+  border: 1px solid rgba(0,191,255,0.08);
+  border-radius: var(--radius-md);
+  padding: 28px 20px 24px; text-align: center;
+  transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
+  backdrop-filter: blur(6px);
+}
+.sector-card:hover {
+  border-color: rgba(0,191,255,0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 36px rgba(0,191,255,0.08);
+}
+.sector-card svg { transition: filter 0.4s ease; }
+.sector-card:hover svg { filter: drop-shadow(0 0 8px rgba(0,191,255,0.4)); }
+.sector-name {
+  font-family: 'Montserrat',sans-serif; font-weight: 700;
+  font-size: 13px; color: var(--white); margin: 14px 0 6px;
+}
+.sector-desc { font-size: 12px; color: var(--concrete-dim); line-height: 1.5; }
+
 /* ════════════════════════════════════════════
    RESPONSIVE — TABLET 768px
    ════════════════════════════════════════════ */
@@ -1529,6 +1736,11 @@ footer { background: var(--navy-darkest); border-top: 1px solid rgba(0,191,255,0
   .hud-topbar{flex-direction:column;gap:8px;align-items:flex-start}
   .hud-topbar-right{display:none}
 
+  /* — SERVICIOS — */
+  .svc-intro{grid-template-columns:1fr;gap:32px;margin-bottom:40px}
+  .svc-features-grid{grid-template-columns:1fr;gap:14px}
+  .svc-cta-strip{padding:28px 20px}
+  .sectores-grid{grid-template-columns:repeat(2,1fr)}
   /* — QUIÉNES — */
   .qs-hero{padding-bottom:40px}
   .qs-title{font-size:clamp(26px,6vw,40px)}
@@ -1612,6 +1824,11 @@ footer { background: var(--navy-darkest); border-top: 1px solid rgba(0,191,255,0
   .problema-cta{padding:24px 16px}
   .problema-cta p{font-size:clamp(16px,4.5vw,22px)}
 
+  /* — SERVICIOS — */
+  .svc-feature{padding:24px 20px}
+  .svc-feature-title{font-size:16px}
+  .sectores-grid{grid-template-columns:1fr}
+  .sector-card{padding:20px 16px}
   /* — QUIÉNES — */
   .qs-stat-card{padding:20px 18px;gap:16px}
   .qs-stat-val{font-size:22px}
@@ -1659,9 +1876,8 @@ footer { background: var(--navy-darkest); border-top: 1px solid rgba(0,191,255,0
 <!-- NAVBAR -->
 <nav class="navbar" id="navbar">
   <ul class="nav-links">
-    <li><a href="#problema">El Problema</a></li>
-    <li><a href="#ecosistema">Servicios</a></li>
-    <li><a href="#metodo">Método</a></li>
+    <li><a href="#consultoria">Consultoría</a></li>
+    <li><a href="#gestion">Gestión</a></li>
     <li><a href="#testimonios">Casos</a></li>
   </ul>
   <a class="nav-cta" href="https://calendar.app.google/mFHRi76LV9q1iqzK6" target="_blank" rel="noopener noreferrer">
@@ -1675,9 +1891,8 @@ footer { background: var(--navy-darkest); border-top: 1px solid rgba(0,191,255,0
 <!-- MOBILE NAV OVERLAY -->
 <div class="mobile-nav" id="mobileNav">
   <ul class="mobile-nav-links">
-    <li><a href="#problema" class="mobile-nav-link">El Problema</a></li>
-    <li><a href="#ecosistema" class="mobile-nav-link">Servicios</a></li>
-    <li><a href="#metodo" class="mobile-nav-link">Método</a></li>
+    <li><a href="#consultoria" class="mobile-nav-link">Consultoría</a></li>
+    <li><a href="#gestion" class="mobile-nav-link">Gestión</a></li>
     <li><a href="#testimonios" class="mobile-nav-link">Casos</a></li>
   </ul>
   <a class="mobile-nav-cta" href="https://calendar.app.google/mFHRi76LV9q1iqzK6" target="_blank" rel="noopener noreferrer">
@@ -1752,7 +1967,7 @@ footer { background: var(--navy-darkest); border-top: 1px solid rgba(0,191,255,0
     <div class="hero-service-paths">
 
       <!-- Consultoría de Negocios y Organizaciones -->
-      <a class="service-path" href="#ecosistema">
+      <a class="service-path" href="#consultoria">
         <div class="service-path-icon">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <rect x="2" y="7" width="20" height="14" rx="2"/>
@@ -1775,7 +1990,7 @@ footer { background: var(--navy-darkest); border-top: 1px solid rgba(0,191,255,0
       </a>
 
       <!-- Gestión de Proyectos -->
-      <a class="service-path" href="#ecosistema">
+      <a class="service-path" href="#gestion">
         <div class="service-path-icon">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <path d="M9 11l3 3L22 4"/>
@@ -1810,484 +2025,255 @@ footer { background: var(--navy-darkest); border-top: 1px solid rgba(0,191,255,0
   </div>
 </section>
 
-<!-- EL PROBLEMA — HUD SECTION -->
-<section id="problema">
-  <canvas class="hud-radar-canvas" id="hudRadar"></canvas>
-  <div class="hud-vignette"></div>
+<!-- ══════════════════════════════════════════
+     CONSULTORÍA DE NEGOCIOS Y ORGANIZACIONES
+     ══════════════════════════════════════════ -->
+<section id="consultoria">
+  <div class="svc-ambient-cyan"></div>
   <div class="blueprint-grid"></div>
 
-  <!-- Corner brackets -->
-  <div class="hud-corners">
-    <div class="hud-corner tl"></div>
-    <div class="hud-corner tr"></div>
-    <div class="hud-corner bl"></div>
-    <div class="hud-corner br"></div>
-  </div>
-
   <div class="section-inner">
 
-    <!-- HUD top bar -->
-    <div class="hud-topbar reveal">
-      <div class="hud-topbar-left">
-        <div class="hud-dot-live"></div>
-        <span class="hud-sys-label">ACTION // Diagnóstico en Vivo</span>
-      </div>
-      <div class="hud-topbar-right">
-        Sistema de Análisis <span>v2.6</span>
-      </div>
+    <div class="svc-header reveal">
+      <span class="section-label">Consultoría</span>
+      <h2 class="section-title"><span class="svc-hl-cyan">Consultoría</span> de Negocios<br>y Organizaciones</h2>
+      <div class="section-divider" style="margin:18px auto 24px"></div>
+      <p class="svc-subtitle">Diseñamos el sistema operativo de tu empresa. Desde el diagnóstico hasta la implementación, trabajamos codo a codo con vos hasta que la organización funcione sin depender de tu presencia constante.</p>
     </div>
 
-    <div class="problema-headline reveal">
-      <span class="section-label">La Realidad del Mercado</span>
-      <h2 class="section-title">La Trampa Operativa</h2>
-      <p>Los números no mienten. El caos no nace del esfuerzo que falta,<br>nace de la estructura que sobra por construir.</p>
-    </div>
-
-    <div class="stats-grid">
-      <!-- Card 1 -->
-      <div class="stat-card reveal" style="transition-delay:.1s" data-bar-target="80" data-bar-color="red">
-        <div class="stat-card-inner">
-          <div class="stat-header">
-            <div class="stat-header-left">
-              <div class="stat-icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00BFFF" stroke-width="1.8" stroke-linecap="round">
-                  <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
-                </svg>
-              </div>
-              <span class="stat-category">Supervivencia PyME</span>
-            </div>
-            <div class="stat-status critical">
-              <div class="stat-status-dot"></div>
-              CRÍTICO
-            </div>
-          </div>
-          <span class="stat-number" data-target="80" data-suffix="%">0%</span>
-          <div class="stat-bar"><div class="stat-bar-fill red"></div></div>
-          <p class="stat-label">de las PyMEs fracasan antes de los 5 años — no por falta de ventas, sino por <strong>falta de procesos.</strong></p>
-          <p class="stat-source">Fuente: CEPAL — Comisión Económica para América Latina</p>
-        </div>
+    <div class="svc-intro reveal">
+      <div class="svc-intro-text">
+        <h3>Tu empresa ya factura. El problema es que vos seguís siendo el cuello de botella.</h3>
+        <p>Tenés equipo, tenés clientes, tenés historia — pero cada decisión importante pasa por vos. Cada proceso depende de tu memoria. Cada problema termina en tu escritorio.</p>
+        <p>Eso no es una empresa: es un trabajo disfrazado de empresa. <strong>Nosotros lo cambiamos.</strong></p>
+        <p>Diseñamos sistemas de gestión que convierten tu operación caótica en una organización predecible, escalable y transferible.</p>
       </div>
-      <!-- Card 2 -->
-      <div class="stat-card reveal" style="transition-delay:.25s" data-bar-target="70" data-bar-color="amber">
-        <div class="stat-card-inner">
-          <div class="stat-header">
-            <div class="stat-header-left">
-              <div class="stat-icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00BFFF" stroke-width="1.8" stroke-linecap="round">
-                  <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
-                </svg>
-              </div>
-              <span class="stat-category">Burnout Fundadores</span>
-            </div>
-            <div class="stat-status warning">
-              <div class="stat-status-dot"></div>
-              ALERTA
-            </div>
-          </div>
-          <span class="stat-number" data-target="70" data-suffix="%">0%</span>
-          <div class="stat-bar"><div class="stat-bar-fill amber"></div></div>
-          <p class="stat-label">de los fundadores clave sufren Burnout crónico. Apagan incendios en lugar de <strong>dirigir.</strong></p>
-          <p class="stat-source">Fuente: OMS — Organización Mundial de la Salud</p>
+      <div class="svc-badge-box reveal-right">
+        <div class="svc-badge-item">
+          <div class="svc-badge-dot cyan"></div>
+          <span class="svc-badge-label"><strong>Diagnóstico completo</strong> — sabemos exactamente qué está frenando tu crecimiento</span>
         </div>
-      </div>
-      <!-- Card 3 -->
-      <div class="stat-card reveal" style="transition-delay:.4s" data-bar-target="15" data-bar-color="cyan">
-        <div class="stat-card-inner">
-          <div class="stat-header">
-            <div class="stat-header-left">
-              <div class="stat-icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00BFFF" stroke-width="1.8" stroke-linecap="round">
-                  <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
-                  <path d="M12 22V12M3.3 7L12 12l8.7-5"/>
-                </svg>
-              </div>
-              <span class="stat-category">Adopción IA</span>
-            </div>
-            <div class="stat-status low">
-              <div class="stat-status-dot"></div>
-              BAJO
-            </div>
-          </div>
-          <span class="stat-number" data-target="15" data-suffix="%">0%</span>
-          <div class="stat-bar"><div class="stat-bar-fill cyan"></div></div>
-          <p class="stat-label">de las empresas usan IA activamente. El resto quedará fuera del mercado en <strong>3 años.</strong></p>
-          <p class="stat-source">Fuente: McKinsey Global Institute 2024</p>
+        <div class="svc-badge-item">
+          <div class="svc-badge-dot cyan"></div>
+          <span class="svc-badge-label"><strong>Implementación real</strong> — no te dejamos con un informe; ejecutamos junto a tu equipo</span>
+        </div>
+        <div class="svc-badge-item">
+          <div class="svc-badge-dot cyan"></div>
+          <span class="svc-badge-label"><strong>Resultados medibles</strong> — KPIs reales, no promesas vacías</span>
+        </div>
+        <div class="svc-badge-item">
+          <div class="svc-badge-dot cyan"></div>
+          <span class="svc-badge-label"><strong>Acompañamiento continuo</strong> — estamos hasta que el sistema funcione solo</span>
         </div>
       </div>
     </div>
 
-    <div class="problema-cta reveal">
-      <p class="hud-cta-sub">Si te identificás con estos datos, tu empresa necesita una <span>intervención estructural.</span></p>
-    </div>
-  </div>
-</section>
+    <div class="svc-features-grid">
 
-<!-- ══════════════════════════════════════════
-     QUIÉNES SOMOS — PREMIUM REDESIGN
-     ══════════════════════════════════════════ -->
-<section id="quienes">
-  <canvas class="qs-canvas" id="qsCanvas"></canvas>
-  <div class="qs-ambient"></div>
-  <div class="qs-orb qs-orb-1"></div>
-  <div class="qs-orb qs-orb-2"></div>
-  <div class="qs-orb qs-orb-3"></div>
-
-  <div class="section-inner">
-
-    <!-- ── Section Hero ── -->
-    <div class="qs-hero reveal">
-      <span class="qs-label">Quiénes Somos</span>
-      <h2 class="qs-title">Consultoría con mentalidad de<br><span class="accent">ingeniería de negocios.</span></h2>
-      <p class="qs-subtitle">Diseñamos sistemas de gestión que convierten PyMEs dependientes del fundador en empresas que funcionan, escalan y trascienden.</p>
-    </div>
-
-    <!-- ── Differentiator strip ── -->
-    <div class="qs-diff reveal">
-      <div class="qs-diff-item">
-        <span class="qs-diff-cross no">&#x2715;</span>
-        <p class="qs-diff-text">No damos <strong>consejos teóricos</strong> desde un escritorio</p>
-      </div>
-      <div class="qs-diff-item">
-        <span class="qs-diff-cross no">&#x2715;</span>
-        <p class="qs-diff-text">No vendemos <strong>plantillas genéricas</strong> enlatadas</p>
-      </div>
-      <div class="qs-diff-item">
-        <span class="qs-diff-cross no">&#x2715;</span>
-        <p class="qs-diff-text">No hacemos <strong>diagnósticos</strong> que nadie ejecuta</p>
-      </div>
-      <div class="qs-diff-item">
-        <span class="qs-diff-cross yes">&rarr;</span>
-        <p class="qs-diff-text">Operamos <strong>junto a vos</strong> hasta que el sistema funcione solo</p>
-      </div>
-    </div>
-
-    <!-- ── Narrative + Stats ── -->
-    <div class="qs-narrative">
-
-      <div class="qs-story reveal-left">
-        <div class="qs-story-eyebrow">Nuestra Identidad</div>
-        <h3>El brazo ejecutor que tu empresa necesita para cruzar al siguiente nivel.</h3>
-        <p>ACTION nació para resolver la mayor crisis del mercado moderno: <strong>el talento sobra, pero la gestión y el orden faltan.</strong></p>
-        <p>Trabajamos codo a codo con dueños de empresas que ya facturan, que ya tienen equipo, que ya tienen clientes — pero que siguen siendo el cuello de botella de su propia operación.</p>
-        <p>Creemos que el <strong>éxito empresarial y el bienestar personal</strong> no deben ser excluyentes. Por eso diseñamos sistemas donde la empresa escala y el dueño se libera.</p>
-
-        <div class="qs-quote">
-          <p>"No vendemos un enlatado. Agregamos gestión a tu pasión."</p>
-          <div class="qs-quote-attr">— Manifiesto ACTION</div>
+      <div class="svc-feature cyan reveal" style="transition-delay:.1s">
+        <div class="svc-feature-num">01</div>
+        <div class="svc-feature-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#00BFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+            <path d="M11 8v6M8 11h6"/>
+          </svg>
+        </div>
+        <h4 class="svc-feature-title">Diagnóstico Organizacional</h4>
+        <p class="svc-feature-desc">Radiografía completa de procesos, estructura, finanzas y equipo. Identificamos los cuellos de botella que frenan tu crecimiento y el punto de máximo impacto para intervenir.</p>
+        <div class="svc-feature-tags">
+          <span class="svc-tag">Auditoría</span>
+          <span class="svc-tag">Análisis</span>
+          <span class="svc-tag">Priorización</span>
         </div>
       </div>
 
-      <div class="qs-stats reveal-right">
-        <div class="qs-stat-card" data-spotlight>
-          <div class="card-spotlight"></div>
-          <div class="qs-stat-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00BFFF" stroke-width="1.8" stroke-linecap="round">
-              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/>
-              <path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/>
-            </svg>
-          </div>
-          <div class="qs-stat-body">
-            <span class="qs-stat-val">+50 <span class="unit">empresas</span></span>
-            <span class="qs-stat-desc">Aceleradas en Argentina, Paraguay, Chile y Uruguay</span>
-          </div>
-        </div>
-        <div class="qs-stat-card" data-spotlight>
-          <div class="card-spotlight"></div>
-          <div class="qs-stat-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00BFFF" stroke-width="1.8" stroke-linecap="round">
-              <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
-            </svg>
-          </div>
-          <div class="qs-stat-body">
-            <span class="qs-stat-val">10h <span class="unit">/ semana</span></span>
-            <span class="qs-stat-desc">Promedio que recupera cada cliente en tiempo operativo</span>
-          </div>
-        </div>
-        <div class="qs-stat-card" data-spotlight>
-          <div class="card-spotlight"></div>
-          <div class="qs-stat-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00BFFF" stroke-width="1.8" stroke-linecap="round">
-              <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
-              <polyline points="16 7 22 7 22 13"/>
-            </svg>
-          </div>
-          <div class="qs-stat-body">
-            <span class="qs-stat-val">+40% <span class="unit">rentabilidad</span></span>
-            <span class="qs-stat-desc">Mejora promedio en rentabilidad neta tras la implementación</span>
-          </div>
-        </div>
-        <div class="qs-stat-card" data-spotlight>
-          <div class="card-spotlight"></div>
-          <div class="qs-stat-icon">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#00BFFF" stroke-width="1.8" stroke-linecap="round">
-              <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
-            </svg>
-          </div>
-          <div class="qs-stat-body">
-            <span class="qs-stat-val">3 <span class="unit">módulos</span></span>
-            <span class="qs-stat-desc">Un ecosistema integral: persona, negocio y corporación</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ── Three Pillars ── -->
-    <div class="qs-pillars">
-      <div class="qs-pillar p-estructura reveal" style="transition-delay:.1s" data-spotlight>
-        <div class="pillar-spotlight"></div>
-        <div class="qs-pillar-icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00BFFF" stroke-width="1.8" stroke-linecap="round">
+      <div class="svc-feature cyan reveal" style="transition-delay:.2s">
+        <div class="svc-feature-num">02</div>
+        <div class="svc-feature-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#00BFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <rect x="3" y="3" width="18" height="18" rx="2"/>
             <path d="M3 9h18M9 21V9"/>
-            <path d="M14 14l2 2 4-4" stroke-width="1.6"/>
           </svg>
         </div>
-        <div class="qs-pillar-sub">Pilar 01</div>
-        <div class="qs-pillar-name">Estructura</div>
-        <p class="qs-pillar-desc">Diseñamos SOPs, organigramas, tableros de KPIs y flujos que permiten que tu empresa funcione con la misma calidad estés o no estés presente.</p>
+        <h4 class="svc-feature-title">Diseño de Estructura</h4>
+        <p class="svc-feature-desc">Organigramas funcionales, manual de funciones, flujos de trabajo y sistemas de delegación. Todo documentado para que tu empresa opere con la misma calidad estés o no estés.</p>
+        <div class="svc-feature-tags">
+          <span class="svc-tag">SOPs</span>
+          <span class="svc-tag">Organigramas</span>
+          <span class="svc-tag">Delegación</span>
+        </div>
       </div>
-      <div class="qs-pillar p-auto reveal" style="transition-delay:.2s" data-spotlight>
-        <div class="pillar-spotlight"></div>
-        <div class="qs-pillar-icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#B388FF" stroke-width="1.8" stroke-linecap="round">
-            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+
+      <div class="svc-feature cyan reveal" style="transition-delay:.3s">
+        <div class="svc-feature-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#00BFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+            <polyline points="16 7 22 7 22 13"/>
           </svg>
         </div>
-        <div class="qs-pillar-sub">Pilar 02</div>
-        <div class="qs-pillar-name">Automatización</div>
-        <p class="qs-pillar-desc">Implementamos chatbots, agentes de IA, flujos automáticos y sistemas inteligentes que eliminan el trabajo repetitivo y multiplican tu capacidad operativa.</p>
+        <div class="svc-feature-num">03</div>
+        <h4 class="svc-feature-title">Tableros de Gestión</h4>
+        <p class="svc-feature-desc">KPIs clave, dashboards en tiempo real y reuniones de alta cadencia. Tomás decisiones con datos, no con intuición. El estado de tu empresa en 5 minutos desde el celular.</p>
+        <div class="svc-feature-tags">
+          <span class="svc-tag">KPIs</span>
+          <span class="svc-tag">Dashboards</span>
+          <span class="svc-tag">Reportes</span>
+        </div>
       </div>
-      <div class="qs-pillar p-legado reveal" style="transition-delay:.3s" data-spotlight>
-        <div class="pillar-spotlight"></div>
-        <div class="qs-pillar-icon">
-          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00E676" stroke-width="1.8" stroke-linecap="round">
-            <path d="M3 17l4-8 4 4 4-6 4 3"/>
-            <circle cx="20" cy="17" r="1.5" fill="#00E676" stroke="none"/>
-            <path d="M1 22h22" stroke-width="1.2"/>
+
+      <div class="svc-feature cyan reveal" style="transition-delay:.4s">
+        <div class="svc-feature-num">04</div>
+        <div class="svc-feature-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#00BFFF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
           </svg>
         </div>
-        <div class="qs-pillar-sub">Pilar 03</div>
-        <div class="qs-pillar-name">Legado</div>
-        <p class="qs-pillar-desc">Construimos una empresa que tus hijos quieran heredar. Con marca, con cultura, con procesos — una organización que trasciende a su fundador.</p>
+        <h4 class="svc-feature-title">Liderazgo y Cultura</h4>
+        <p class="svc-feature-desc">Desarrollamos líderes en cada nivel del equipo. Construimos cultura organizacional y mentalidad de director para que el negocio escale sin que todo dependa de vos.</p>
+        <div class="svc-feature-tags">
+          <span class="svc-tag">Liderazgo</span>
+          <span class="svc-tag">Cultura</span>
+          <span class="svc-tag">Escala</span>
+        </div>
       </div>
+
     </div>
 
-    <!-- ── Closing Mission ── -->
-    <div class="qs-mission reveal">
-      <p class="qs-mission-text">Nuestro propósito es simple: que el éxito de tu empresa <span class="grad">no dependa de tu agotamiento.</span></p>
-      <p class="qs-mission-sub">Eso es ACTION. Ingeniería de Negocios aplicada a tu realidad.</p>
+    <div class="svc-cta-strip reveal">
+      <p>¿Querés que tu empresa funcione <span>cuando vos no estás?</span></p>
+      <a class="btn-svc-cta cyan" href="https://calendar.app.google/mFHRi76LV9q1iqzK6" target="_blank" rel="noopener noreferrer">
+        Agendar Diagnóstico Gratuito
+      </a>
     </div>
 
   </div>
 </section>
 
 <!-- ══════════════════════════════════════════
-     ECOSISTEMA — 3-MODULE ARCHITECTURE
+     GESTIÓN DE PROYECTOS
      ══════════════════════════════════════════ -->
-<section id="ecosistema">
-  <canvas class="eco-canvas" id="ecoCanvas"></canvas>
-  <div class="eco-ambient"></div>
+<section id="gestion">
+  <div class="svc-ambient-green"></div>
   <div class="blueprint-grid"></div>
+
   <div class="section-inner">
-    <div class="eco-header reveal">
-      <span class="section-label">Nuestros Servicios</span>
-      <h2 class="section-title">El Ecosistema ACTION</h2>
-      <div class="section-divider" style="margin:20px auto 0"></div>
-      <p style="margin-top:18px;font-size:17px;max-width:600px;margin-left:auto;margin-right:auto;color:var(--concrete-dim)">
-        Tres módulos. Una arquitectura. Un solo objetivo: que tu empresa funcione, escale y trascienda — sin depender de vos.
-      </p>
+
+    <div class="svc-header reveal">
+      <span class="section-label" style="color:var(--life-color)">Gestión de Proyectos</span>
+      <h2 class="section-title"><span class="svc-hl-green">Gestión</span> de Proyectos</h2>
+      <div class="section-divider" style="margin:18px auto 24px;background:var(--life-color)"></div>
+      <p class="svc-subtitle">Ejecutamos tus proyectos estratégicos de principio a fin. En tiempo, en presupuesto y con resultados medibles. Nos hacemos cargo para que vos puedas dirigir.</p>
     </div>
 
-    <div class="eco-grid">
-
-      <!-- ACTION LIFE — Green -->
-      <div class="eco-card life reveal" style="transition-delay:.1s" data-bar="75">
-        <div class="card-glow"></div>
-        <div class="card-line"></div>
-        <div class="card-number">01</div>
-        <div class="eco-card-inner">
-          <div class="eco-card-badge">El Fundador</div>
-          <div class="eco-icon-wrap">
-            <svg viewBox="0 0 24 24" stroke="#00E676">
-              <path d="M12 2a5 5 0 1 0 0 10A5 5 0 0 0 12 2z"/>
-              <path d="M2 20c0-4 4.5-7 10-7s10 3 10 7"/>
-              <path d="M12 12v2m-2 2h4"/>
-            </svg>
-          </div>
-          <div class="eco-module">Módulo 01</div>
-          <h3 class="eco-title">ACTION Life</h3>
-          <p class="eco-desc">Antes de escalar la empresa, escalás vos. Claridad estratégica, liderazgo consciente, gestión del tiempo y energía del fundador como primer activo del negocio.</p>
-          <div class="eco-bar"><div class="eco-bar-fill" style="width:0%"></div></div>
-          <div class="eco-tags">
-            <span class="eco-tag">Liderazgo</span>
-            <span class="eco-tag">Mentalidad</span>
-            <span class="eco-tag">Enfoque</span>
-            <span class="eco-tag">Energía</span>
-          </div>
+    <div class="svc-intro reveal">
+      <div class="svc-badge-box green reveal-left">
+        <div class="svc-badge-item">
+          <div class="svc-badge-dot green"></div>
+          <span class="svc-badge-label"><strong>Alcance definido</strong> — sabemos exactamente qué se entrega, cuándo y con qué recursos</span>
+        </div>
+        <div class="svc-badge-item">
+          <div class="svc-badge-dot green"></div>
+          <span class="svc-badge-label"><strong>Control en tiempo real</strong> — reportes de avance y gestión de desvíos antes de que sean problemas</span>
+        </div>
+        <div class="svc-badge-item">
+          <div class="svc-badge-dot green"></div>
+          <span class="svc-badge-label"><strong>Coordinación total</strong> — equipos, proveedores y stakeholders alineados en una sola dirección</span>
+        </div>
+        <div class="svc-badge-item">
+          <div class="svc-badge-dot green"></div>
+          <span class="svc-badge-label"><strong>Cierre documentado</strong> — el proyecto termina; el conocimiento y los sistemas quedan</span>
         </div>
       </div>
-
-      <!-- ACTION BUSINESS — Blue -->
-      <div class="eco-card business reveal" style="transition-delay:.2s" data-bar="90">
-        <div class="card-glow"></div>
-        <div class="card-line"></div>
-        <div class="card-number">02</div>
-        <div class="eco-card-inner">
-          <div class="eco-card-badge">La Operación</div>
-          <div class="eco-icon-wrap">
-            <svg viewBox="0 0 24 24" stroke="#00BFFF">
-              <rect x="3" y="3" width="18" height="18" rx="2"/>
-              <path d="M3 9h18M9 3v18"/>
-              <path d="M14 14l2 2 4-4" stroke-width="1.6"/>
-            </svg>
-          </div>
-          <div class="eco-module">Módulo 02</div>
-          <h3 class="eco-title">ACTION Business</h3>
-          <p class="eco-desc">Sistematización total del negocio. SOPs, tableros de KPIs, estructura de ventas, gestión financiera y procesos que funcionan con o sin vos.</p>
-          <div class="eco-bar"><div class="eco-bar-fill" style="width:0%"></div></div>
-          <div class="eco-tags">
-            <span class="eco-tag">SOPs</span>
-            <span class="eco-tag">Procesos</span>
-            <span class="eco-tag">KPIs</span>
-            <span class="eco-tag">Ventas</span>
-            <span class="eco-tag">Finanzas</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- ACTION CORP — Violet -->
-      <div class="eco-card corp reveal" style="transition-delay:.3s" data-bar="85">
-        <div class="card-glow"></div>
-        <div class="card-line"></div>
-        <div class="card-number">03</div>
-        <div class="eco-card-inner">
-          <div class="eco-card-badge">La Escalabilidad</div>
-          <div class="eco-icon-wrap">
-            <svg viewBox="0 0 24 24" stroke="#B388FF">
-              <path d="M3 17l4-8 4 4 4-6 4 3"/>
-              <circle cx="20" cy="10" r="1.5" fill="#B388FF" stroke="none"/>
-              <path d="M12 2a4 4 0 0 1 4 4 4 4 0 0 1-4 4 4 4 0 0 1-4-4 4 4 0 0 1 4-4z" opacity="0.3"/>
-              <path d="M1 22h22" stroke-width="1.2"/>
-            </svg>
-          </div>
-          <div class="eco-module">Módulo 03</div>
-          <h3 class="eco-title">ACTION Corp</h3>
-          <p class="eco-desc">Institucionalización y escala. IA aplicada, automatización, expansión de mercado, profesionalización corporativa y preparación para crecer sin límites.</p>
-          <div class="eco-bar"><div class="eco-bar-fill" style="width:0%"></div></div>
-          <div class="eco-tags">
-            <span class="eco-tag">IA</span>
-            <span class="eco-tag">Automatización</span>
-            <span class="eco-tag">Expansión</span>
-            <span class="eco-tag">Institucionalización</span>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- EL MÉTODO -->
-<section id="metodo">
-  <canvas class="metodo-canvas" id="metodoCanvas"></canvas>
-  <div class="metodo-ambient"></div>
-  <div class="blueprint-grid"></div>
-  <div class="section-inner">
-    <div class="metodo-header reveal">
-      <span class="section-label">Nuestra Metodología</span>
-      <h2 class="section-title">Del Caos al Control<br>en 4 Etapas</h2>
-      <div class="section-divider" style="margin:20px auto 0"></div>
-      <p style="margin-top:18px;font-size:17px;color:var(--concrete-dim)">Un proceso probado, estructurado y ejecutado junto a vos. Sin teoría vacía.</p>
-    </div>
-    <div class="timeline" id="timeline">
-      <div class="tl-connector"></div>
-      <div class="tl-progress" id="tlProgress"></div>
-      <div class="timeline-item reveal" style="transition-delay:.1s">
-        <div class="tl-num">01</div>
-        <div class="tl-step">Fase 01</div>
-        <h3 class="tl-title">Diagnóstico</h3>
-        <p class="tl-desc">Radiografía completa: procesos, finanzas, equipo y tecnología. Identificamos los cuellos de botella y el punto de máximo impacto.</p>
-      </div>
-      <div class="timeline-item reveal" style="transition-delay:.2s">
-        <div class="tl-num">02</div>
-        <div class="tl-step">Fase 02</div>
-        <h3 class="tl-title">Arquitectura</h3>
-        <p class="tl-desc">Diseñamos el plano de tu empresa ideal: organigrama, flujos, KPIs y el mapa de automatización. La ingeniería antes de la construcción.</p>
-      </div>
-      <div class="timeline-item reveal" style="transition-delay:.3s">
-        <div class="tl-num">03</div>
-        <div class="tl-step">Fase 03</div>
-        <h3 class="tl-title">Implementación</h3>
-        <p class="tl-desc">Ejecutamos junto a tu equipo. SOPs documentados, sistemas implementados y equipo entrenado para operar sin dependerte.</p>
-      </div>
-      <div class="timeline-item reveal" style="transition-delay:.4s">
-        <div class="tl-num">04</div>
-        <div class="tl-step">Fase 04</div>
-        <h3 class="tl-title">Escalado</h3>
-        <p class="tl-desc">Consolidamos resultados y activamos el crecimiento. Marketing científico, expansión de mercado e IA para crecer mes a mes.</p>
+      <div class="svc-intro-text reveal-right">
+        <h3>Cada proyecto sin gestión profesional es un proyecto que costará más, tardará más y entregará menos.</h3>
+        <p>Las buenas ideas mueren por mala ejecución. Los proyectos estratégicos — lanzamientos, expansiones, implementaciones tecnológicas, reestructuraciones — requieren una gestión específica que muy pocas PyMEs tienen.</p>
+        <p>Nosotros <strong>nos hacemos cargo del proyecto</strong> para que vos puedas seguir dirigiendo la empresa sin que un proyecto consuma toda tu energía.</p>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- AUDIENCIA -->
-<section id="audiencia">
-  <canvas class="aud-canvas" id="audCanvas"></canvas>
-  <div class="aud-ambient"></div>
-  <div class="section-inner">
-    <div class="audiencia-header reveal">
-      <span class="section-label">Nuestros Clientes</span>
-      <h2 class="section-title">Trabajamos con dueños de PyMEs en:</h2>
-      <div class="section-divider" style="margin:20px auto 0"></div>
-    </div>
-    <div class="audiencia-grid">
-      <div class="audiencia-card reveal" style="transition-delay:.1s" data-spotlight>
-        <div class="card-spotlight"></div>
-        <div class="audiencia-icon">
-          <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#00BFFF" stroke-width="1.5" stroke-linecap="round">
-            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+    <div class="svc-features-grid">
+
+      <div class="svc-feature green reveal" style="transition-delay:.1s">
+        <div class="svc-feature-num">01</div>
+        <div class="svc-feature-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#00E676" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2"/>
+            <line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/>
+            <line x1="3" y1="10" x2="21" y2="10"/>
           </svg>
         </div>
-        <div class="audiencia-name">Agroindustria</div>
-        <p class="audiencia-desc">Cooperativas, frigoríficos, bodegas y exportadores que buscan ordenar y escalar.</p>
+        <h4 class="svc-feature-title">Planificación Estratégica</h4>
+        <p class="svc-feature-desc">Definimos alcance, cronograma, presupuesto, recursos, riesgos y métricas de éxito. El mapa completo antes de dar el primer paso. Sin sorpresas a mitad del camino.</p>
+        <div class="svc-feature-tags">
+          <span class="svc-tag">Alcance</span>
+          <span class="svc-tag">Cronograma</span>
+          <span class="svc-tag">Riesgos</span>
+        </div>
       </div>
-      <div class="audiencia-card reveal" style="transition-delay:.2s" data-spotlight>
-        <div class="card-spotlight"></div>
-        <div class="audiencia-icon">
-          <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#00BFFF" stroke-width="1.5" stroke-linecap="round">
-            <polygon points="3 22 21 22 21 8 12 2 3 8"/><line x1="9" y1="22" x2="9" y2="12"/><line x1="15" y1="22" x2="15" y2="12"/><line x1="9" y1="12" x2="15" y2="12"/>
+
+      <div class="svc-feature green reveal" style="transition-delay:.2s">
+        <div class="svc-feature-num">02</div>
+        <div class="svc-feature-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#00E676" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+            <polyline points="16 7 22 7 22 13"/>
           </svg>
         </div>
-        <div class="audiencia-name">Construcción & Real Estate</div>
-        <p class="audiencia-desc">Constructoras y desarrolladoras que necesitan gestión financiera robusta.</p>
+        <h4 class="svc-feature-title">Control de Ejecución</h4>
+        <p class="svc-feature-desc">Seguimiento en tiempo real, reportes de avance periódicos y gestión de desvíos antes de que se conviertan en crisis. Vos siempre sabés en qué punto está tu proyecto.</p>
+        <div class="svc-feature-tags">
+          <span class="svc-tag">Seguimiento</span>
+          <span class="svc-tag">Reportes</span>
+          <span class="svc-tag">Control</span>
+        </div>
       </div>
-      <div class="audiencia-card reveal" style="transition-delay:.3s" data-spotlight>
-        <div class="card-spotlight"></div>
-        <div class="audiencia-icon">
-          <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#00BFFF" stroke-width="1.5" stroke-linecap="round">
-            <rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-4 0v2M8 7V5a2 2 0 00-4 0v2"/><line x1="12" y1="12" x2="12" y2="17"/><line x1="9.5" y1="14.5" x2="14.5" y2="14.5"/>
+
+      <div class="svc-feature green reveal" style="transition-delay:.3s">
+        <div class="svc-feature-num">03</div>
+        <div class="svc-feature-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#00E676" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
           </svg>
         </div>
-        <div class="audiencia-name">Manufactura</div>
-        <p class="audiencia-desc">Industrias y talleres que requieren optimización de procesos productivos.</p>
+        <h4 class="svc-feature-title">Coordinación de Equipos</h4>
+        <p class="svc-feature-desc">Alineamos equipos multidisciplinarios, gestionamos proveedores y resolvemos conflictos para que el proyecto avance sin fricciones. Un solo punto de contacto para toda la complejidad.</p>
+        <div class="svc-feature-tags">
+          <span class="svc-tag">Equipos</span>
+          <span class="svc-tag">Proveedores</span>
+          <span class="svc-tag">Coordinación</span>
+        </div>
       </div>
-      <div class="audiencia-card reveal" style="transition-delay:.4s" data-spotlight>
-        <div class="card-spotlight"></div>
-        <div class="audiencia-icon">
-          <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#00BFFF" stroke-width="1.5" stroke-linecap="round">
-            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
+
+      <div class="svc-feature green reveal" style="transition-delay:.4s">
+        <div class="svc-feature-num">04</div>
+        <div class="svc-feature-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#00E676" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 11l3 3L22 4"/>
+            <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
           </svg>
         </div>
-        <div class="audiencia-name">Servicios Profesionales</div>
-        <p class="audiencia-desc">Estudios y agencias que necesitan sistematizar su conocimiento y escalar.</p>
+        <h4 class="svc-feature-title">Cierre y Transferencia</h4>
+        <p class="svc-feature-desc">Entregables documentados, lecciones aprendidas y traspaso sostenible a tu equipo. El proyecto termina con orden: el conocimiento y los sistemas quedan dentro de tu organización.</p>
+        <div class="svc-feature-tags">
+          <span class="svc-tag">Documentación</span>
+          <span class="svc-tag">Traspaso</span>
+          <span class="svc-tag">Resultados</span>
+        </div>
       </div>
+
     </div>
-    <div class="audiencia-cta-bar reveal">
-      <p>
-        Si facturás más de $50k USD / año y seguís siendo el cuello de botella —
-        <span style="color:var(--cyan)">hablemos.</span>
-      </p>
+
+    <div class="svc-cta-strip green reveal">
+      <p>¿Tenés un proyecto estratégico que no podés permitirte <span>fallar?</span></p>
+      <a class="btn-svc-cta green" href="https://calendar.app.google/mFHRi76LV9q1iqzK6" target="_blank" rel="noopener noreferrer">
+        Hablemos de tu Proyecto
+      </a>
     </div>
+
   </div>
 </section>
 
@@ -2342,6 +2328,51 @@ footer { background: var(--navy-darkest); border-top: 1px solid rgba(0,191,255,0
         </div>
       </div>
     </div>
+
+    <!-- Sectores que atendemos -->
+    <div class="sectores-strip reveal">
+      <div class="sectores-label">
+        <span>Sectores que Atendemos</span>
+      </div>
+      <div class="sectores-grid">
+        <div class="sector-card">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#00BFFF" stroke-width="1.5" stroke-linecap="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+          <div class="sector-name">Agroindustria</div>
+          <p class="sector-desc">Cooperativas, frigoríficos, bodegas y exportadores.</p>
+        </div>
+        <div class="sector-card">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#00BFFF" stroke-width="1.5" stroke-linecap="round">
+            <polygon points="3 22 21 22 21 8 12 2 3 8"/>
+            <line x1="9" y1="22" x2="9" y2="12"/><line x1="15" y1="22" x2="15" y2="12"/>
+            <line x1="9" y1="12" x2="15" y2="12"/>
+          </svg>
+          <div class="sector-name">Construcción & Real Estate</div>
+          <p class="sector-desc">Constructoras y desarrolladoras con gestión financiera robusta.</p>
+        </div>
+        <div class="sector-card">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#00BFFF" stroke-width="1.5" stroke-linecap="round">
+            <rect x="2" y="7" width="20" height="14" rx="2"/>
+            <path d="M16 7V5a2 2 0 00-4 0v2M8 7V5a2 2 0 00-4 0v2"/>
+            <line x1="12" y1="12" x2="12" y2="17"/><line x1="9.5" y1="14.5" x2="14.5" y2="14.5"/>
+          </svg>
+          <div class="sector-name">Manufactura</div>
+          <p class="sector-desc">Industrias y talleres con optimización de procesos productivos.</p>
+        </div>
+        <div class="sector-card">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#00BFFF" stroke-width="1.5" stroke-linecap="round">
+            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
+          </svg>
+          <div class="sector-name">Servicios Profesionales</div>
+          <p class="sector-desc">Estudios y agencias que sistematizan su conocimiento y escalan.</p>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
