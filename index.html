@@ -213,6 +213,11 @@ section { position: relative; overflow: hidden; }
   opacity: 0; animation: fadeUp 0.7s ease 1.15s forwards;
 }
 
+/* ── HERO MOBILE CTA (solo visible en mobile) ── */
+.hero-mobile-cta {
+  display: none;
+}
+
 /* ── HERO SERVICE PATHS ── */
 .hero-service-paths {
   display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
@@ -1452,6 +1457,27 @@ footer { background: var(--navy-darkest); border-top: 1px solid rgba(0,191,255,0
   .service-path{min-width:unset;width:100%;max-width:440px;padding:18px 22px;gap:16px}
   .service-path-icon{width:46px;height:46px}
   .service-path-label{font-size:15px}
+  /* CTA mobile */
+  .hero-mobile-cta{
+    display:block;
+    margin-top:20px;
+    padding:17px 32px;
+    background:var(--cyan);
+    color:var(--navy-darkest);
+    font-family:'Montserrat',sans-serif;
+    font-weight:800;
+    font-size:12px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    border-radius:var(--radius-sm);
+    text-decoration:none;
+    text-align:center;
+    width:100%;
+    max-width:440px;
+    box-shadow:0 8px 36px rgba(0,191,255,0.4);
+    opacity:0;
+    animation:fadeUp 0.7s ease 1.3s forwards;
+  }
 
   /* — PROBLEMA — */
   .stats-grid{grid-template-columns:1fr;gap:14px;margin-bottom:40px}
@@ -1728,6 +1754,12 @@ footer { background: var(--navy-darkest); border-top: 1px solid rgba(0,191,255,0
       </a>
 
     </div>
+
+    <!-- CTA visible solo en mobile -->
+    <a class="hero-mobile-cta" href="https://calendar.app.google/mFHRi76LV9q1iqzK6" target="_blank" rel="noopener noreferrer">
+      Agendar Diagnóstico Gratuito
+    </a>
+
   </div>
 
   <div class="scroll-indicator">
