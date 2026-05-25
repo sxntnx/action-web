@@ -93,9 +93,10 @@ section { position: relative; overflow: hidden; }
 .nav-logo-text .slash { color: var(--cyan); font-style: normal; }
 .nav-links { display: flex; gap: 38px; list-style: none; }
 .nav-links a {
-  font-size: 12px; font-weight: 600; letter-spacing: 1.5px;
-  text-transform: uppercase; color: var(--concrete);
+  font-size: 12px; font-weight: 700; letter-spacing: 1.5px;
+  text-transform: uppercase; color: var(--white);
   transition: color var(--transition); position: relative;
+  opacity: 0.85;
 }
 .nav-links a::after {
   content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
@@ -219,8 +220,8 @@ section { position: relative; overflow: hidden; }
   margin-top: 8px;
 }
 .service-path {
-  display: flex; align-items: center; gap: 18px;
-  padding: 20px 26px;
+  display: flex; align-items: center; gap: 22px;
+  padding: 28px 36px;
   background: rgba(13,27,46,0.65);
   border: 1px solid rgba(0,191,255,0.15);
   border-radius: var(--radius-md);
@@ -228,7 +229,7 @@ section { position: relative; overflow: hidden; }
   -webkit-backdrop-filter: blur(14px);
   cursor: pointer; transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
   text-decoration: none; color: var(--white);
-  min-width: 270px; position: relative; overflow: hidden;
+  min-width: 320px; position: relative; overflow: hidden;
 }
 .service-path::before {
   content: ''; position: absolute; top: 0; left: 0; right: 0;
@@ -244,7 +245,7 @@ section { position: relative; overflow: hidden; }
   background: rgba(13,27,46,0.9);
 }
 .service-path-icon {
-  width: 46px; height: 46px; border-radius: 12px;
+  width: 56px; height: 56px; border-radius: 14px;
   background: rgba(0,191,255,0.07);
   border: 1px solid rgba(0,191,255,0.2);
   display: flex; align-items: center; justify-content: center;
@@ -258,11 +259,11 @@ section { position: relative; overflow: hidden; }
 .service-path-body { flex: 1; text-align: left; }
 .service-path-label {
   font-family: 'Montserrat', sans-serif; font-weight: 800;
-  font-size: 14px; color: var(--white); line-height: 1.35;
-  margin-bottom: 3px;
+  font-size: 17px; color: var(--white); line-height: 1.35;
+  margin-bottom: 5px;
 }
 .service-path-sub {
-  font-size: 10px; color: var(--concrete-dim);
+  font-size: 11px; color: var(--concrete-dim);
   letter-spacing: 1px; text-transform: uppercase;
 }
 .service-hl {
