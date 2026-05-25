@@ -1425,78 +1425,168 @@ footer { background: var(--navy-darkest); border-top: 1px solid rgba(0,191,255,0
   .audiencia-grid{grid-template-columns:repeat(2,1fr)}
   .footer-top{grid-template-columns:1fr 1fr;gap:40px}
 }
+/* ════════════════════════════════════════════
+   RESPONSIVE — TABLET 768px
+   ════════════════════════════════════════════ */
 @media(max-width:768px){
   /* — NAV — */
   .navbar{padding:14px 20px}
   .navbar.scrolled{padding:10px 20px}
   .nav-links,.nav-cta{display:none}
   .nav-hamburger{display:flex}
+
   /* — LAYOUT — */
   .section-inner{padding:56px 20px}
+
   /* — HERO — */
   .hero-logo-text{font-size:clamp(56px,18vw,96px);letter-spacing:8px}
   .hero-tagline{font-size:clamp(18px,5vw,28px);min-height:auto}
-  .hero-subtitle{font-size:14px;margin-bottom:36px}
+  .hero-subtitle{font-size:14px;margin-bottom:28px}
   .hero-subtitle br{display:none}
   .hero-actions{gap:12px}
   .hero-eyebrow{margin-bottom:20px}
   .scroll-indicator{display:none}
   .hero-badge{display:none}
+  /* Service paths → single column */
+  .hero-service-paths{flex-direction:column;align-items:center;gap:12px;margin-top:4px}
+  .service-path{min-width:unset;width:100%;max-width:440px;padding:18px 22px;gap:16px}
+  .service-path-icon{width:46px;height:46px}
+  .service-path-label{font-size:15px}
+
   /* — PROBLEMA — */
   .stats-grid{grid-template-columns:1fr;gap:14px;margin-bottom:40px}
   .stat-card-inner{padding:24px 20px 20px}
   .stat-number{font-size:clamp(44px,12vw,60px)}
   .problema-headline{margin-bottom:40px}
   .problema-headline p{font-size:15px}
+  .problema-headline p br{display:none}
   .problema-cta{padding:32px 20px}
+  .problema-cta p{font-size:clamp(18px,4.5vw,28px)}
   .hud-corners{display:none}
   .hud-topbar{flex-direction:column;gap:8px;align-items:flex-start}
+  .hud-topbar-right{display:none}
+
   /* — QUIÉNES — */
   .qs-hero{padding-bottom:40px}
+  .qs-title{font-size:clamp(26px,6vw,40px)}
   .qs-subtitle{font-size:15px}
   .qs-diff{flex-direction:column;margin-bottom:40px}
   .qs-diff-item{padding:22px 20px}
   .qs-diff-item+.qs-diff-item{border-left:none;border-top:1px solid rgba(0,191,255,0.06)}
   .qs-narrative{grid-template-columns:1fr;gap:40px;margin-bottom:48px}
+  .qs-stat-card{flex-direction:row;align-items:center}
   .qs-pillars{grid-template-columns:1fr}
+  .qs-pillar{padding:28px 24px}
+  .qs-mission{padding:40px 20px}
+
   /* — ECOSISTEMA — */
   .eco-grid{grid-template-columns:1fr}
   .eco-header{margin-bottom:40px}
   .eco-card-inner{padding:32px 24px 28px}
+  .eco-title{font-size:22px}
+
   /* — MÉTODO — */
-  .timeline{grid-template-columns:1fr}
+  .timeline{grid-template-columns:1fr;gap:32px}
   .tl-connector,.tl-progress{display:none}
   .metodo-header{margin-bottom:40px}
+  .timeline-item{flex-direction:row;align-items:flex-start;text-align:left;gap:20px;padding:0}
+  .tl-num{margin-bottom:0;flex-shrink:0}
+
   /* — AUDIENCIA — */
   .audiencia-grid{grid-template-columns:repeat(2,1fr)}
   .audiencia-card{padding:28px 20px 24px}
   .audiencia-header{margin-bottom:36px}
   .audiencia-cta-bar{padding:28px 20px}
+  .audiencia-cta-bar p{font-size:15px}
+
   /* — TESTIMONIOS — */
   .testimonios-grid{grid-template-columns:1fr}
   .testimonio-card-inner{padding:32px 24px 28px}
   .testimonios-header{margin-bottom:40px}
+  .testimonio-metrics{flex-wrap:wrap}
+  .metric{min-width:33%}
+
   /* — CTA FINAL — */
-  .cta-numbers{gap:24px;margin-top:40px}
+  .cta-question{font-size:clamp(24px,5.5vw,40px)}
+  .cta-answer{font-size:clamp(16px,3.5vw,22px);margin-bottom:36px}
+  .cta-numbers{gap:28px;margin-top:40px;flex-wrap:wrap;justify-content:center}
+  .cta-stat .cta-stat-val{font-size:32px}
   .cta-btn{padding:16px 40px;font-size:13px}
-  .cta-answer{margin-bottom:36px}
+
   /* — FOOTER — */
   .footer-top{grid-template-columns:1fr;gap:32px}
   .footer-bottom{flex-direction:column;gap:12px;text-align:center}
   footer{padding:48px 20px 28px}
+  .footer-brand-text br{display:none}
 }
+
+/* ════════════════════════════════════════════
+   RESPONSIVE — MOBILE 480px
+   ════════════════════════════════════════════ */
 @media(max-width:480px){
+  /* — LAYOUT — */
   .section-inner{padding:44px 16px}
-  .audiencia-grid{grid-template-columns:1fr}
+
+  /* — HERO — */
+  .hero-logo-text{font-size:clamp(48px,15vw,80px);letter-spacing:5px}
+  .hero-content{padding:0 16px}
+  .hero-subtitle{font-size:13px;margin-bottom:24px}
+  .hero-service-paths{gap:10px}
+  .service-path{max-width:100%;padding:16px 18px;gap:14px}
+  .service-path-icon{width:40px;height:40px;border-radius:10px}
+  .service-path-icon svg{width:20px;height:20px}
+  .service-path-label{font-size:13px;line-height:1.3}
+  .service-path-sub{font-size:9px}
+  .service-path-arrow svg{width:14px;height:14px}
   .hero-actions{flex-direction:column;align-items:center}
   .btn-primary,.btn-outline{width:100%;max-width:340px;text-align:center;padding:14px 20px}
-  .hero-service-paths{flex-direction:column;align-items:center}
-  .service-path{width:100%;max-width:340px;min-width:unset}
-  .cta-btn{width:100%;max-width:340px}
-  .testimonio-card-inner{padding:24px 18px 22px}
-  .eco-card-inner{padding:26px 18px 22px}
+
+  /* — PROBLEMA — */
   .stat-card-inner{padding:20px 16px 16px}
+  .stat-number{font-size:clamp(40px,11vw,56px)}
+  .stat-label{font-size:13px}
   .problema-cta{padding:24px 16px}
+  .problema-cta p{font-size:clamp(16px,4.5vw,22px)}
+
+  /* — QUIÉNES — */
+  .qs-stat-card{padding:20px 18px;gap:16px}
+  .qs-stat-val{font-size:22px}
+  .qs-pillar{padding:24px 18px}
+
+  /* — ECOSISTEMA — */
+  .eco-card-inner{padding:26px 18px 22px}
+  .eco-title{font-size:20px}
+  .eco-desc{font-size:14px}
+
+  /* — MÉTODO — */
+  .timeline-item{padding:0}
+  .tl-num{width:44px;height:44px;font-size:15px;flex-shrink:0}
+  .tl-title{font-size:16px}
+  .tl-desc{font-size:13px}
+
+  /* — AUDIENCIA — */
+  .audiencia-grid{grid-template-columns:1fr}
+  .audiencia-card{padding:24px 18px 20px}
+  .audiencia-cta-bar p{font-size:14px}
+
+  /* — TESTIMONIOS — */
+  .testimonio-card-inner{padding:24px 18px 22px}
+  .testimonio-text{font-size:14px}
+  .testimonio-metrics{flex-direction:row;flex-wrap:wrap}
+  .metric{flex:1 1 30%;padding:14px 8px}
+  .metric-value{font-size:20px}
+  .metric-label{font-size:9px}
+
+  /* — CTA FINAL — */
+  .cta-btn{width:100%;max-width:340px;padding:16px 24px;font-size:12px}
+  .cta-numbers{gap:16px;margin-top:32px}
+  .cta-stat .cta-stat-val{font-size:26px}
+  .cta-stat .cta-stat-lbl{font-size:10px}
+  .cta-fine{font-size:12px;padding:0 8px}
+
+  /* — FOOTER — */
+  .social-links{gap:8px}
+  .footer-brand-text{font-size:13px}
 }
 </style>
 </head>
