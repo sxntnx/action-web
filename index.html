@@ -310,6 +310,24 @@ section { position: relative; overflow: hidden; }
   color: var(--cyan);
   text-shadow: 0 0 24px rgba(0,191,255,0.4);
 }
+.service-hl-green {
+  color: var(--life-color);
+  text-shadow: 0 0 24px rgba(0,230,118,0.4);
+}
+/* Service path — green card variant */
+.service-path.green { border-color: rgba(0,230,118,0.15); }
+.service-path.green::before { background: linear-gradient(90deg, transparent, var(--life-color), transparent); }
+.service-path.green:hover { border-color: rgba(0,230,118,0.4); box-shadow: 0 18px 52px rgba(0,230,118,0.14); }
+.service-path.green .service-path-arrow { color: var(--life-color); }
+.service-path.green .service-path-icon { background: rgba(0,230,118,0.07); border-color: rgba(0,230,118,0.2); }
+.service-path.green:hover .service-path-icon { box-shadow: 0 0 22px rgba(0,230,118,0.22); }
+/* Hero values — 3 pillars, repositioned minimal eyebrow */
+.hero-values {
+  font-family: 'Montserrat', sans-serif; font-size: 11px;
+  letter-spacing: 4px; color: var(--cyan);
+  opacity: 0; animation: fadeUp 0.7s ease 1.12s forwards;
+  margin: 16px 0 20px;
+}
 .service-path-arrow {
   opacity: 0.3; transition: all 0.3s ease;
   flex-shrink: 0; color: var(--cyan);
@@ -1510,6 +1528,19 @@ footer { background: var(--navy-darkest); border-top: 1px solid rgba(0,191,255,0
   font-size: clamp(20px,2.5vw,28px); color: var(--white);
   margin-bottom: 16px; line-height: 1.3;
 }
+/* Impact headline variants */
+.svc-impact {
+  font-size: clamp(22px,2.8vw,34px) !important;
+  text-shadow: 0 0 40px rgba(0,191,255,0.35), 0 0 80px rgba(0,191,255,0.15);
+  color: var(--white) !important; line-height: 1.2 !important;
+  border-left: 3px solid var(--cyan); padding-left: 20px;
+}
+.svc-impact-green {
+  font-size: clamp(22px,2.8vw,34px) !important;
+  text-shadow: 0 0 40px rgba(0,230,118,0.35), 0 0 80px rgba(0,230,118,0.15);
+  color: var(--white) !important; line-height: 1.2 !important;
+  border-left: 3px solid var(--life-color); padding-left: 20px;
+}
 .svc-intro-text p {
   font-size: 16px; color: var(--concrete); line-height: 1.85; margin-bottom: 12px;
 }
@@ -1689,8 +1720,7 @@ footer { background: var(--navy-darkest); border-top: 1px solid rgba(0,191,255,0
   /* — HERO — */
   .hero-logo-text{font-size:clamp(56px,18vw,96px);letter-spacing:8px}
   .hero-tagline{font-size:clamp(18px,5vw,28px);min-height:auto}
-  .hero-subtitle{font-size:14px;margin-bottom:20px}
-  .hero-subtitle br{display:none}
+  .hero-values{font-size:10px;letter-spacing:3px}
   .hero-hook{font-size:13px;padding:12px 20px;margin-bottom:24px}
   .hero-actions{gap:12px}
   .hero-eyebrow{margin-bottom:20px}
@@ -1805,7 +1835,7 @@ footer { background: var(--navy-darkest); border-top: 1px solid rgba(0,191,255,0
   /* — HERO — */
   .hero-logo-text{font-size:clamp(48px,15vw,80px);letter-spacing:5px}
   .hero-content{padding:0 16px}
-  .hero-subtitle{font-size:13px;margin-bottom:16px}
+  .hero-values{font-size:9px;letter-spacing:2.5px;margin:12px 0 14px}
   .hero-hook{font-size:12px;padding:10px 18px;margin-bottom:18px;border-radius:40px}
   .hero-service-paths{gap:10px}
   .service-path{max-width:100%;padding:16px 18px;gap:14px}
@@ -1881,7 +1911,7 @@ footer { background: var(--navy-darkest); border-top: 1px solid rgba(0,191,255,0
     <li><a href="#testimonios">Casos</a></li>
   </ul>
   <a class="nav-cta" href="https://calendar.app.google/mFHRi76LV9q1iqzK6" target="_blank" rel="noopener noreferrer">
-    <span>Agendar Diagnóstico Gratuito</span>
+    <span>Agendar diagnóstico gratuito</span>
   </a>
   <button class="nav-hamburger" id="hamburger" aria-label="Menú" aria-expanded="false">
     <span></span><span></span><span></span>
@@ -1955,14 +1985,11 @@ footer { background: var(--navy-darkest); border-top: 1px solid rgba(0,191,255,0
       <span id="typewriter-text"></span><span class="typewriter-cursor"></span>
     </h1>
 
-    <p class="hero-subtitle">
-      Fusionamos <strong>Estructura · Automatización · Liderazgo</strong><br>
-      para devolverle a tu empresa el activo más escaso: <strong>tu tiempo.</strong>
-    </p>
-
     <p class="hero-hook">
       ¿Sos <em>dueño</em> de tu empresa… o su <em>empleado más exigido</em>?
     </p>
+
+    <p class="hero-values">estructura · automatización · liderazgo</p>
 
     <div class="hero-service-paths">
 
@@ -1990,16 +2017,16 @@ footer { background: var(--navy-darkest); border-top: 1px solid rgba(0,191,255,0
       </a>
 
       <!-- Gestión de Proyectos -->
-      <a class="service-path" href="#gestion">
+      <a class="service-path green" href="#gestion">
         <div class="service-path-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--life-color)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
             <path d="M9 11l3 3L22 4"/>
             <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
           </svg>
         </div>
         <div class="service-path-body">
           <div class="service-path-label">
-            <span class="service-hl">Gestión</span> de Proyectos
+            <span class="service-hl-green">Gestión</span> de Proyectos
           </div>
           <div class="service-path-sub">Planificación · Control · Resultados</div>
         </div>
@@ -2014,7 +2041,7 @@ footer { background: var(--navy-darkest); border-top: 1px solid rgba(0,191,255,0
 
     <!-- CTA visible solo en mobile -->
     <a class="hero-mobile-cta" href="https://calendar.app.google/mFHRi76LV9q1iqzK6" target="_blank" rel="noopener noreferrer">
-      Agendar Diagnóstico Gratuito
+      Agendar diagnóstico gratuito
     </a>
 
   </div>
@@ -2038,32 +2065,31 @@ footer { background: var(--navy-darkest); border-top: 1px solid rgba(0,191,255,0
       <span class="section-label">Consultoría</span>
       <h2 class="section-title"><span class="svc-hl-cyan">Consultoría</span> de Negocios<br>y Organizaciones</h2>
       <div class="section-divider" style="margin:18px auto 24px"></div>
-      <p class="svc-subtitle">Diseñamos el sistema operativo de tu empresa. Desde el diagnóstico hasta la implementación, trabajamos codo a codo con vos hasta que la organización funcione sin depender de tu presencia constante.</p>
+      <p class="svc-subtitle">Diseñamos el sistema operativo de tu empresa para que funcione sin depender de tu presencia constante.</p>
     </div>
 
     <div class="svc-intro reveal">
       <div class="svc-intro-text">
-        <h3>Tu empresa ya factura. El problema es que vos seguís siendo el cuello de botella.</h3>
-        <p>Tenés equipo, tenés clientes, tenés historia — pero cada decisión importante pasa por vos. Cada proceso depende de tu memoria. Cada problema termina en tu escritorio.</p>
-        <p>Eso no es una empresa: es un trabajo disfrazado de empresa. <strong>Nosotros lo cambiamos.</strong></p>
-        <p>Diseñamos sistemas de gestión que convierten tu operación caótica en una organización predecible, escalable y transferible.</p>
+        <h3 class="svc-impact">Tu empresa ya factura. El problema es que vos seguís siendo el cuello de botella.</h3>
+        <p>Cada decisión pasa por vos. Cada proceso depende de tu memoria. Cada problema termina en tu escritorio. Eso no es una empresa — es un trabajo disfrazado.</p>
+        <p>Diseñamos sistemas que convierten tu operación en una organización predecible, escalable y transferible.</p>
       </div>
       <div class="svc-badge-box reveal-right">
         <div class="svc-badge-item">
           <div class="svc-badge-dot cyan"></div>
-          <span class="svc-badge-label"><strong>Diagnóstico completo</strong> — sabemos exactamente qué está frenando tu crecimiento</span>
+          <span class="svc-badge-label"><strong>Diagnóstico completo</strong> — identificamos exactamente qué frena tu crecimiento</span>
         </div>
         <div class="svc-badge-item">
           <div class="svc-badge-dot cyan"></div>
-          <span class="svc-badge-label"><strong>Implementación real</strong> — no te dejamos con un informe; ejecutamos junto a tu equipo</span>
+          <span class="svc-badge-label"><strong>Implementación real</strong> — ejecutamos junto a tu equipo, no solo entregamos un informe</span>
         </div>
         <div class="svc-badge-item">
           <div class="svc-badge-dot cyan"></div>
-          <span class="svc-badge-label"><strong>Resultados medibles</strong> — KPIs reales, no promesas vacías</span>
+          <span class="svc-badge-label"><strong>Resultados medibles</strong> — KPIs reales, no promesas</span>
         </div>
         <div class="svc-badge-item">
           <div class="svc-badge-dot cyan"></div>
-          <span class="svc-badge-label"><strong>Acompañamiento continuo</strong> — estamos hasta que el sistema funcione solo</span>
+          <span class="svc-badge-label"><strong>Acompañamiento continuo</strong> — hasta que el sistema funcione solo</span>
         </div>
       </div>
     </div>
@@ -2078,8 +2104,8 @@ footer { background: var(--navy-darkest); border-top: 1px solid rgba(0,191,255,0
             <path d="M11 8v6M8 11h6"/>
           </svg>
         </div>
-        <h4 class="svc-feature-title">Diagnóstico Organizacional</h4>
-        <p class="svc-feature-desc">Radiografía completa de procesos, estructura, finanzas y equipo. Identificamos los cuellos de botella que frenan tu crecimiento y el punto de máximo impacto para intervenir.</p>
+        <h4 class="svc-feature-title">Diagnóstico organizacional</h4>
+        <p class="svc-feature-desc">Radiografía de procesos, estructura y equipo. Identificamos los cuellos de botella y el punto de máximo impacto para intervenir.</p>
         <div class="svc-feature-tags">
           <span class="svc-tag">Auditoría</span>
           <span class="svc-tag">Análisis</span>
@@ -2095,8 +2121,8 @@ footer { background: var(--navy-darkest); border-top: 1px solid rgba(0,191,255,0
             <path d="M3 9h18M9 21V9"/>
           </svg>
         </div>
-        <h4 class="svc-feature-title">Diseño de Estructura</h4>
-        <p class="svc-feature-desc">Organigramas funcionales, manual de funciones, flujos de trabajo y sistemas de delegación. Todo documentado para que tu empresa opere con la misma calidad estés o no estés.</p>
+        <h4 class="svc-feature-title">Diseño de estructura</h4>
+        <p class="svc-feature-desc">Organigramas, manual de funciones y sistemas de delegación. Todo documentado para que tu empresa opere igual estés o no estés.</p>
         <div class="svc-feature-tags">
           <span class="svc-tag">SOPs</span>
           <span class="svc-tag">Organigramas</span>
@@ -2112,8 +2138,8 @@ footer { background: var(--navy-darkest); border-top: 1px solid rgba(0,191,255,0
           </svg>
         </div>
         <div class="svc-feature-num">03</div>
-        <h4 class="svc-feature-title">Tableros de Gestión</h4>
-        <p class="svc-feature-desc">KPIs clave, dashboards en tiempo real y reuniones de alta cadencia. Tomás decisiones con datos, no con intuición. El estado de tu empresa en 5 minutos desde el celular.</p>
+        <h4 class="svc-feature-title">Tableros de gestión</h4>
+        <p class="svc-feature-desc">KPIs clave y dashboards en tiempo real. Decisiones con datos, no con intuición. El estado de tu empresa en 5 minutos desde el celular.</p>
         <div class="svc-feature-tags">
           <span class="svc-tag">KPIs</span>
           <span class="svc-tag">Dashboards</span>
@@ -2130,8 +2156,8 @@ footer { background: var(--navy-darkest); border-top: 1px solid rgba(0,191,255,0
             <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
           </svg>
         </div>
-        <h4 class="svc-feature-title">Liderazgo y Cultura</h4>
-        <p class="svc-feature-desc">Desarrollamos líderes en cada nivel del equipo. Construimos cultura organizacional y mentalidad de director para que el negocio escale sin que todo dependa de vos.</p>
+        <h4 class="svc-feature-title">Liderazgo y cultura</h4>
+        <p class="svc-feature-desc">Desarrollamos líderes en cada nivel y construimos cultura organizacional para que el negocio escale sin que todo dependa de vos.</p>
         <div class="svc-feature-tags">
           <span class="svc-tag">Liderazgo</span>
           <span class="svc-tag">Cultura</span>
@@ -2144,7 +2170,7 @@ footer { background: var(--navy-darkest); border-top: 1px solid rgba(0,191,255,0
     <div class="svc-cta-strip reveal">
       <p>¿Querés que tu empresa funcione <span>cuando vos no estás?</span></p>
       <a class="btn-svc-cta cyan" href="https://calendar.app.google/mFHRi76LV9q1iqzK6" target="_blank" rel="noopener noreferrer">
-        Agendar Diagnóstico Gratuito
+        Agendar diagnóstico gratuito
       </a>
     </div>
 
@@ -2164,32 +2190,32 @@ footer { background: var(--navy-darkest); border-top: 1px solid rgba(0,191,255,0
       <span class="section-label" style="color:var(--life-color)">Gestión de Proyectos</span>
       <h2 class="section-title"><span class="svc-hl-green">Gestión</span> de Proyectos</h2>
       <div class="section-divider" style="margin:18px auto 24px;background:var(--life-color)"></div>
-      <p class="svc-subtitle">Ejecutamos tus proyectos estratégicos de principio a fin. En tiempo, en presupuesto y con resultados medibles. Nos hacemos cargo para que vos puedas dirigir.</p>
+      <p class="svc-subtitle">Ejecutamos tus proyectos estratégicos de principio a fin — en tiempo, en presupuesto y con resultados medibles.</p>
     </div>
 
     <div class="svc-intro reveal">
       <div class="svc-badge-box green reveal-left">
         <div class="svc-badge-item">
           <div class="svc-badge-dot green"></div>
-          <span class="svc-badge-label"><strong>Alcance definido</strong> — sabemos exactamente qué se entrega, cuándo y con qué recursos</span>
+          <span class="svc-badge-label"><strong>Alcance definido</strong> — qué se entrega, cuándo y con qué recursos</span>
         </div>
         <div class="svc-badge-item">
           <div class="svc-badge-dot green"></div>
-          <span class="svc-badge-label"><strong>Control en tiempo real</strong> — reportes de avance y gestión de desvíos antes de que sean problemas</span>
+          <span class="svc-badge-label"><strong>Control en tiempo real</strong> — desvíos gestionados antes de que sean problemas</span>
         </div>
         <div class="svc-badge-item">
           <div class="svc-badge-dot green"></div>
-          <span class="svc-badge-label"><strong>Coordinación total</strong> — equipos, proveedores y stakeholders alineados en una sola dirección</span>
+          <span class="svc-badge-label"><strong>Coordinación total</strong> — equipos, proveedores y stakeholders alineados</span>
         </div>
         <div class="svc-badge-item">
           <div class="svc-badge-dot green"></div>
-          <span class="svc-badge-label"><strong>Cierre documentado</strong> — el proyecto termina; el conocimiento y los sistemas quedan</span>
+          <span class="svc-badge-label"><strong>Cierre documentado</strong> — el conocimiento y los sistemas quedan en tu organización</span>
         </div>
       </div>
       <div class="svc-intro-text reveal-right">
-        <h3>Cada proyecto sin gestión profesional es un proyecto que costará más, tardará más y entregará menos.</h3>
-        <p>Las buenas ideas mueren por mala ejecución. Los proyectos estratégicos — lanzamientos, expansiones, implementaciones tecnológicas, reestructuraciones — requieren una gestión específica que muy pocas PyMEs tienen.</p>
-        <p>Nosotros <strong>nos hacemos cargo del proyecto</strong> para que vos puedas seguir dirigiendo la empresa sin que un proyecto consuma toda tu energía.</p>
+        <h3 class="svc-impact-green">Cada proyecto sin gestión profesional costará más, tardará más y entregará menos.</h3>
+        <p>Las buenas ideas mueren por mala ejecución. Los proyectos estratégicos — lanzamientos, expansiones, implementaciones — requieren gestión específica que pocas PyMEs tienen internamente.</p>
+        <p><strong>Nos hacemos cargo del proyecto</strong> para que vos puedas seguir dirigiendo sin que un proyecto consuma toda tu energía.</p>
       </div>
     </div>
 
@@ -2204,8 +2230,8 @@ footer { background: var(--navy-darkest); border-top: 1px solid rgba(0,191,255,0
             <line x1="3" y1="10" x2="21" y2="10"/>
           </svg>
         </div>
-        <h4 class="svc-feature-title">Planificación Estratégica</h4>
-        <p class="svc-feature-desc">Definimos alcance, cronograma, presupuesto, recursos, riesgos y métricas de éxito. El mapa completo antes de dar el primer paso. Sin sorpresas a mitad del camino.</p>
+        <h4 class="svc-feature-title">Planificación estratégica</h4>
+        <p class="svc-feature-desc">Alcance, cronograma, presupuesto, riesgos y métricas de éxito. El mapa completo antes del primer paso, sin sorpresas en el camino.</p>
         <div class="svc-feature-tags">
           <span class="svc-tag">Alcance</span>
           <span class="svc-tag">Cronograma</span>
@@ -2221,8 +2247,8 @@ footer { background: var(--navy-darkest); border-top: 1px solid rgba(0,191,255,0
             <polyline points="16 7 22 7 22 13"/>
           </svg>
         </div>
-        <h4 class="svc-feature-title">Control de Ejecución</h4>
-        <p class="svc-feature-desc">Seguimiento en tiempo real, reportes de avance periódicos y gestión de desvíos antes de que se conviertan en crisis. Vos siempre sabés en qué punto está tu proyecto.</p>
+        <h4 class="svc-feature-title">Control de ejecución</h4>
+        <p class="svc-feature-desc">Seguimiento continuo, reportes periódicos y gestión de desvíos antes de que sean crisis. Siempre sabés en qué punto está tu proyecto.</p>
         <div class="svc-feature-tags">
           <span class="svc-tag">Seguimiento</span>
           <span class="svc-tag">Reportes</span>
@@ -2239,8 +2265,8 @@ footer { background: var(--navy-darkest); border-top: 1px solid rgba(0,191,255,0
             <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
           </svg>
         </div>
-        <h4 class="svc-feature-title">Coordinación de Equipos</h4>
-        <p class="svc-feature-desc">Alineamos equipos multidisciplinarios, gestionamos proveedores y resolvemos conflictos para que el proyecto avance sin fricciones. Un solo punto de contacto para toda la complejidad.</p>
+        <h4 class="svc-feature-title">Coordinación de equipos</h4>
+        <p class="svc-feature-desc">Alineamos equipos, gestionamos proveedores y resolvemos conflictos. Un solo punto de contacto para toda la complejidad del proyecto.</p>
         <div class="svc-feature-tags">
           <span class="svc-tag">Equipos</span>
           <span class="svc-tag">Proveedores</span>
@@ -2256,8 +2282,8 @@ footer { background: var(--navy-darkest); border-top: 1px solid rgba(0,191,255,0
             <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
           </svg>
         </div>
-        <h4 class="svc-feature-title">Cierre y Transferencia</h4>
-        <p class="svc-feature-desc">Entregables documentados, lecciones aprendidas y traspaso sostenible a tu equipo. El proyecto termina con orden: el conocimiento y los sistemas quedan dentro de tu organización.</p>
+        <h4 class="svc-feature-title">Cierre y transferencia</h4>
+        <p class="svc-feature-desc">Entregables documentados y traspaso sostenible. El proyecto termina con orden — el conocimiento y los sistemas quedan en tu organización.</p>
         <div class="svc-feature-tags">
           <span class="svc-tag">Documentación</span>
           <span class="svc-tag">Traspaso</span>
@@ -2270,7 +2296,7 @@ footer { background: var(--navy-darkest); border-top: 1px solid rgba(0,191,255,0
     <div class="svc-cta-strip green reveal">
       <p>¿Tenés un proyecto estratégico que no podés permitirte <span>fallar?</span></p>
       <a class="btn-svc-cta green" href="https://calendar.app.google/mFHRi76LV9q1iqzK6" target="_blank" rel="noopener noreferrer">
-        Hablemos de tu Proyecto
+        Hablemos de tu proyecto
       </a>
     </div>
 
@@ -2284,7 +2310,7 @@ footer { background: var(--navy-darkest); border-top: 1px solid rgba(0,191,255,0
   <div class="blueprint-grid"></div>
   <div class="section-inner">
     <div class="testimonios-header reveal">
-      <span class="section-label">Casos de Éxito</span>
+      <span class="section-label">Casos de éxito</span>
       <h2 class="section-title">Resultados que hablan</h2>
       <div class="section-divider" style="margin:20px auto 0"></div>
     </div>
@@ -2332,7 +2358,7 @@ footer { background: var(--navy-darkest); border-top: 1px solid rgba(0,191,255,0
     <!-- Sectores que atendemos -->
     <div class="sectores-strip reveal">
       <div class="sectores-label">
-        <span>Sectores que Atendemos</span>
+        <span>Sectores que atendemos</span>
       </div>
       <div class="sectores-grid">
         <div class="sector-card">
@@ -2367,7 +2393,7 @@ footer { background: var(--navy-darkest); border-top: 1px solid rgba(0,191,255,0
             <circle cx="9" cy="7" r="4"/>
             <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
           </svg>
-          <div class="sector-name">Servicios Profesionales</div>
+          <div class="sector-name">Servicios profesionales</div>
           <p class="sector-desc">Estudios y agencias que sistematizan su conocimiento y escalan.</p>
         </div>
       </div>
@@ -2387,7 +2413,7 @@ footer { background: var(--navy-darkest); border-top: 1px solid rgba(0,191,255,0
       <div class="cta-divider"></div>
       <div>
         <button class="cta-btn" onclick="alert('¡Agendemos! Contactanos en @action.ingenieria o vía WhatsApp Business.')">
-          <span>Agendá tu Diagnóstico Gratuito</span>
+          <span>Agendá tu diagnóstico gratuito</span>
         </button>
       </div>
       <p class="cta-fine"><span>Sin costo.</span> Sin compromisos. Solo 45 minutos que pueden cambiar el rumbo de tu empresa.</p>
